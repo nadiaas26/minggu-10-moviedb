@@ -11,7 +11,7 @@ class ApiProvider{
   Future<PopularMovies> getPopularMovies() async {
 
     Response response = 
-    await client.get('$baseurl/movie/popular?api_key=$apiKey');
+    await client.get(Uri.parse('$baseurl/movie/popular?api_key=$apiKey'));
      if (response.statusCode == 200) {
       return PopularMovies.fromJson(jsonDecode(response.body));
     } else {
